@@ -5,25 +5,25 @@
 class Ipcalc < Formula
   desc "ipcalc - written in go"
   homepage "https://github.com/noqqe/ipcalc"
-  version "0.2.4"
+  version "0.2.5"
   license "MIT"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.2.4/ipcalc_0.2.4_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy.
-    sha256 "250bfe6c985f01704946b0f6793f6e110449358e4b84ed020ea97124000ce25f"
+    url "https://github.com/noqqe/ipcalc/releases/download/v0.2.5/ipcalc_0.2.5_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy.
+    sha256 "f1fe0c46db15c6e4066e5f5b08047591f7b44b9949463af1259f01506c840fa6"
   end
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.2.4/ipcalc_0.2.4_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy.
-    sha256 "b0271568ae9c2f562da2b1510e68a7d0cad2958f5a33c9b5e4dcff4700f14069"
+    url "https://github.com/noqqe/ipcalc/releases/download/v0.2.5/ipcalc_0.2.5_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy.
+    sha256 "ce85df011b4c8682e7098174f4a7e44e8a71096a85db196237134d7ff1471230"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.2.4/ipcalc_0.2.4_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy.
-    sha256 "8893851cf32b34ef248e278c8b45d1f3af198bfaa54398ec669c22d3a0474869"
+    url "https://github.com/noqqe/ipcalc/releases/download/v0.2.5/ipcalc_0.2.5_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy.
+    sha256 "678dc4fea506cba5c9da73c2189955c3b0d26de4eb3d5a59b27d61397d4ab6da"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.2.4/ipcalc_0.2.4_Linux_arm64.tar.gz", :using => CurlDownloadStrategy.
-    sha256 "fce5ddb6848920da8910fc8bf85acf9136e0fcdf2b360486766074a9ce8eed63"
+    url "https://github.com/noqqe/ipcalc/releases/download/v0.2.5/ipcalc_0.2.5_Linux_arm64.tar.gz", :using => CurlDownloadStrategy.
+    sha256 "7d2fb8d97ac90dc98def82f7afd11a8ed4050c443ce28a3c59f860d4ee5a519a"
   end
 
   depends_on "go"
@@ -31,12 +31,12 @@ class Ipcalc < Formula
   conflicts_with "ipcalc"
 
   def install
-    bin.install "program"
+    bin.install "ipcalc"
     ...
   end
 
   test do
-    system "#{bin}/program --version"
+    system "#{bin}/ipcalc --version"
     ...
   end
 end
