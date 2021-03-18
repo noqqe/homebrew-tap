@@ -5,25 +5,25 @@
 class Ipcalc < Formula
   desc "ipcalc - written in go"
   homepage "https://github.com/noqqe/ipcalc"
-  version "0.2.8"
+  version "0.3.0"
   license "MIT"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.2.8/ipcalc_0.2.8_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "bef9573bea2bb0af8f91b58e41271faaf9fdbb819873beee814e77f8761bbee9"
+    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.0/ipcalc_0.3.0_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "5df030b02778178cd5806d037eb393e32642eb395063985f26cd2943efa0a9f3"
   end
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.2.8/ipcalc_0.2.8_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "ccc0ffd126f8a6ac314db142e11ae77c30645782557866cb5cba995db4fc000a"
+    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.0/ipcalc_0.3.0_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "31a871570ab4693d71fbc77a1ebaf440e547fe040e7c4620616381df77b8a81f"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.2.8/ipcalc_0.2.8_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "29d7a71c59aa431ba44c6692e5507d2abf6c3e7189f492e4ad4456010167ddff"
+    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.0/ipcalc_0.3.0_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "e306e09ad47af5eec3dfe5427fc2a0e5465a49cce1b1e92120074e7bc5b475d0"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.2.8/ipcalc_0.2.8_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "15b59463285ae5c49fa8c5bf206bd77ab3ae28c86c2dddf64172821eb6c7b401"
+    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.0/ipcalc_0.3.0_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "c3bf69b5e5d091e2cb1b8f81db49357648375b3c8b47b6ee35f6969dfbe0273d"
   end
 
   depends_on "go"
