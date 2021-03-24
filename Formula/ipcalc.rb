@@ -5,28 +5,26 @@
 class Ipcalc < Formula
   desc "ipcalc - written in go"
   homepage "https://github.com/noqqe/ipcalc"
-  version "0.3.0"
+  version "0.3.1"
   license "MIT"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.0/ipcalc_0.3.0_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "5df030b02778178cd5806d037eb393e32642eb395063985f26cd2943efa0a9f3"
+    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.1/ipcalc_0.3.1_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "ae0c40801b4f19e4d8bb8236bbbbf2c0aee4346876ba7ba1bed3fcf60989829a"
   end
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.0/ipcalc_0.3.0_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "31a871570ab4693d71fbc77a1ebaf440e547fe040e7c4620616381df77b8a81f"
+    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.1/ipcalc_0.3.1_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "f41ddb36e5768612875619493670ca709df392e87c5825d954d28f62df56ce3d"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.0/ipcalc_0.3.0_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "e306e09ad47af5eec3dfe5427fc2a0e5465a49cce1b1e92120074e7bc5b475d0"
+    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.1/ipcalc_0.3.1_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "c3bbf6bb30896b36c707a3ed57230bcf19f6e4b6282998f1b229f995767b1fc7"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.0/ipcalc_0.3.0_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "c3bf69b5e5d091e2cb1b8f81db49357648375b3c8b47b6ee35f6969dfbe0273d"
+    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.1/ipcalc_0.3.1_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "5e71503e7277c3efa6c6949097a43def92f568500fc20f40646816e4db22c71a"
   end
-
-  depends_on "go"
 
   conflicts_with "ipcalc"
 
