@@ -5,25 +5,25 @@
 class Veilig < Formula
   desc "veilig - written in go"
   homepage "https://github.com/noqqe/veilig"
-  version "1.2.0"
+  version "1.2.1"
   license "MIT"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/veilig/releases/download/v1.2.0/veilig_1.2.0_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "15ac78d39764ff47852a42b48146fedf233ae5c4abd1b682f447d0aa96818279"
+    url "https://github.com/noqqe/veilig/releases/download/v1.2.1/veilig_1.2.1_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "2f4f37ddd55c8002ff1655c9899ce577469f7b69ebeadcc1b75a298849e3b61a"
   end
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/noqqe/veilig/releases/download/v1.2.0/veilig_1.2.0_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "c11b5178b1c9737a631ca6a1fdd3fdebb641886159293a158e65cc5bcd8c5f83"
+    url "https://github.com/noqqe/veilig/releases/download/v1.2.1/veilig_1.2.1_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "51689e1874531b54c2fe5ce5fab5239fdf26927eb88bbb9099940241d69c71c4"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/veilig/releases/download/v1.2.0/veilig_1.2.0_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "887710e75b0033ebc0a3a8729c8c2c5b529015f67b17f2b950e08402523566d6"
+    url "https://github.com/noqqe/veilig/releases/download/v1.2.1/veilig_1.2.1_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "a8a888ab2888d4b0cfcab05dffa924dfc25e4fe5fb85a5188841cdf0ff51455c"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/noqqe/veilig/releases/download/v1.2.0/veilig_1.2.0_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "6adafa5f866c6ecd104fad5de0ad3326242b4827f989d3325379e2c370271801"
+    url "https://github.com/noqqe/veilig/releases/download/v1.2.1/veilig_1.2.1_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
+    sha256 "8da07289bf787f9a22c42ae46d909c7a34b4e3fc529be09217c61baf3d75103b"
   end
 
   conflicts_with "veilig"
