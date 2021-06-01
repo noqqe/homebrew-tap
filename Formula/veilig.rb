@@ -5,25 +5,30 @@
 class Veilig < Formula
   desc "veilig - written in go"
   homepage "https://github.com/noqqe/veilig"
-  version "1.2.1"
+  version "1.3.0"
   license "MIT"
   bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/veilig/releases/download/v1.2.1/veilig_1.2.1_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "2f4f37ddd55c8002ff1655c9899ce577469f7b69ebeadcc1b75a298849e3b61a"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/veilig/releases/download/v1.3.0/veilig_1.3.0_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "0515dcaf3b449243e01b6424d28d64006b5c99fd0ca20d5a33e939fe5706f6d6"
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/noqqe/veilig/releases/download/v1.3.0/veilig_1.3.0_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "84326805a54c6f96fabcdaf62121889687e02f9b3b4dc02fb90bc2a387595a23"
+    end
   end
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/noqqe/veilig/releases/download/v1.2.1/veilig_1.2.1_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "51689e1874531b54c2fe5ce5fab5239fdf26927eb88bbb9099940241d69c71c4"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/veilig/releases/download/v1.2.1/veilig_1.2.1_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "a8a888ab2888d4b0cfcab05dffa924dfc25e4fe5fb85a5188841cdf0ff51455c"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/noqqe/veilig/releases/download/v1.2.1/veilig_1.2.1_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "8da07289bf787f9a22c42ae46d909c7a34b4e3fc529be09217c61baf3d75103b"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/veilig/releases/download/v1.3.0/veilig_1.3.0_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "2bf1cb9cf19858ff4eab0489cb62d7113eca057ab9c3c01d0977aa4ab2420b53"
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/noqqe/veilig/releases/download/v1.3.0/veilig_1.3.0_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "34976d9ef318562d908db308ae1005d15670df78c3dee97702b551ad9b3e1bb6"
+    end
   end
 
   conflicts_with "veilig"
