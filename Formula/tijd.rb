@@ -5,25 +5,30 @@
 class Tijd < Formula
   desc "time tool for working remote with the world"
   homepage "https://github.com/noqqe/tijd"
-  version "0.0.3"
+  version "0.0.4"
   license "MIT"
   bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/tijd/releases/download/v0.0.3/tijd_0.0.3_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "38761f33f0ae219f2c7ba42f0798b621a7d0a8a873cd068fb7c26238958dbac9"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/tijd/releases/download/v0.0.4/tijd_0.0.4_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "09cde0c983fa173e77c3c822c38d1146051b7cadd920dab4a866323a6ad1bd76"
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/noqqe/tijd/releases/download/v0.0.4/tijd_0.0.4_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "5c815fe9b16266ba9f1a910bfe4aa41b8046c0b1049d6aa1e0ecb8cb65700a0e"
+    end
   end
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/noqqe/tijd/releases/download/v0.0.3/tijd_0.0.3_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "2157f82a7540158e70c5420e76ffc75c581910128e623e6c6ba6b87ae92b83c3"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/tijd/releases/download/v0.0.3/tijd_0.0.3_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "00c779862ac2cd1ac2fe3384253a90e474a7c3c7200b9c692024425a197a0494"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/noqqe/tijd/releases/download/v0.0.3/tijd_0.0.3_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "db3c30a2efb22358d0a2e36f07f461f9d82107d900dad43f103c9bb5e5bab39d"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/tijd/releases/download/v0.0.4/tijd_0.0.4_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "62509fc8d7a3423f883e96d225ebace6d4eb4c357caf5468bdd58f07103ebcb0"
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/noqqe/tijd/releases/download/v0.0.4/tijd_0.0.4_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "c3d9e59dfd2f2dcbceb7fe094e210d3fcf81102350ee55da0457bb2b6e2f84b3"
+    end
   end
 
   def install
