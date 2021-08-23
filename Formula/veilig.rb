@@ -5,29 +5,29 @@
 class Veilig < Formula
   desc "veilig - written in go"
   homepage "https://github.com/noqqe/veilig"
-  version "1.3.2"
+  version "1.3.3"
   license "MIT"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/noqqe/veilig/releases/download/v1.3.2/veilig_1.3.2_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "d019492d3ae608c158f7d94aef6210d62e18543b8cf73172cd3340fc9fd6c42f"
+      url "https://github.com/noqqe/veilig/releases/download/v1.3.3/veilig_1.3.3_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "56df8d2b85d9c48395b8d4435c0a5656bc7fc6cd480f5149984411d8321e31e1"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/noqqe/veilig/releases/download/v1.3.2/veilig_1.3.2_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "ad5a50dd4009ecfcfaa7d83bcc2fb8431d28c4d30c4dd4a059e137214c8612f7"
+      url "https://github.com/noqqe/veilig/releases/download/v1.3.3/veilig_1.3.3_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "de9461aea37f07420d40931ddf71db68e8787703a5b7bb8f74baa7051b338466"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/noqqe/veilig/releases/download/v1.3.2/veilig_1.3.2_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "cb5ec9df81bbc2ab874e2308d32879bac7f26d70e01e2d7bcff43c4efdc36573"
+      url "https://github.com/noqqe/veilig/releases/download/v1.3.3/veilig_1.3.3_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "8306eca9a752873a358baea06379bfcbc9454cd101c68a16ef13b8479a565ec0"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/veilig/releases/download/v1.3.2/veilig_1.3.2_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "0a5edc46008f1d9dbbb5c6fa9a5305d9cebc09ce57a39fd1a8543c06ec1c8926"
+      url "https://github.com/noqqe/veilig/releases/download/v1.3.3/veilig_1.3.3_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "31c5846fbc96763012883ed71499bc2114180b03e472dc2a4c9daf438b2ed456"
     end
   end
 
