@@ -5,32 +5,48 @@
 class Ipcalc < Formula
   desc "ipcalc - written in go"
   homepage "https://github.com/noqqe/ipcalc"
-  version "0.3.1"
+  version "0.3.2"
   license "MIT"
-  bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.1/ipcalc_0.3.1_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "ae0c40801b4f19e4d8bb8236bbbbf2c0aee4346876ba7ba1bed3fcf60989829a"
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/noqqe/ipcalc/releases/download/v0.3.2/ipcalc_0.3.2_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "36bf0d9ade45d7779ab550ef468e2d630678781a65499785adcfd190d55436aa"
+
+      def install
+        bin.install "ipcalc"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/ipcalc/releases/download/v0.3.2/ipcalc_0.3.2_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "52bf38e51eb3b055a9df08e38b7b38b991192306ec38e89c1b83084a61a7cb1a"
+
+      def install
+        bin.install "ipcalc"
+      end
+    end
   end
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.1/ipcalc_0.3.1_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "f41ddb36e5768612875619493670ca709df392e87c5825d954d28f62df56ce3d"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.1/ipcalc_0.3.1_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "c3bbf6bb30896b36c707a3ed57230bcf19f6e4b6282998f1b229f995767b1fc7"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/noqqe/ipcalc/releases/download/v0.3.1/ipcalc_0.3.1_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "5e71503e7277c3efa6c6949097a43def92f568500fc20f40646816e4db22c71a"
+
+  on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/noqqe/ipcalc/releases/download/v0.3.2/ipcalc_0.3.2_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "deb16a7722a3e15f94b38ba5d4863f6ab3ba8400f62bbc40f7fc554812d67543"
+
+      def install
+        bin.install "ipcalc"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/ipcalc/releases/download/v0.3.2/ipcalc_0.3.2_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "367799b8035a8a9510575f6ebfae1dc67bb56130b676848121e44f30bbe80018"
+
+      def install
+        bin.install "ipcalc"
+      end
+    end
   end
 
   conflicts_with "ipcalc"
-
-  def install
-    bin.install "ipcalc"
-  end
 
   test do
     system "#{bin}/ipcalc --version"
