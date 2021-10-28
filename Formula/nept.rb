@@ -5,32 +5,48 @@
 class Nept < Formula
   desc "nept - image manipulation on commandline on pixel level"
   homepage "https://github.com/noqqe/nept"
-  version "1.0.1"
+  version "1.1.1"
   license "MIT"
-  bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/nept/releases/download/v1.0.1/nept_1.0.1_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "80d6e2a96fe53b77d51442551b729f20c2c55949f65e26f96854f1d655961e5e"
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/noqqe/nept/releases/download/v1.1.1/nept_1.1.1_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "8ce2689648cb9cb51295b27ffc507731777086b6ea2894182388a80d3c00b9b4"
+
+      def install
+        bin.install "nept"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/nept/releases/download/v1.1.1/nept_1.1.1_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "74817bae999cc751a3b738c3b2e22645a51f18c724c6a1f2f91bca8fbc05d5de"
+
+      def install
+        bin.install "nept"
+      end
+    end
   end
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/noqqe/nept/releases/download/v1.0.1/nept_1.0.1_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "af98549a3ddfda525a8995e361a32787a9afd83d27a5dad495eacf84f11bad3d"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/noqqe/nept/releases/download/v1.0.1/nept_1.0.1_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "6942f6ad4952b73fb9d7f80360ad25f7a5a8165c52bd7eb64a4f3e32cd7cf10e"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/noqqe/nept/releases/download/v1.0.1/nept_1.0.1_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-    sha256 "72356e81f90101089f40b628ff700b1bb6459df37b48082da34c03b739bb84f0"
+
+  on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/noqqe/nept/releases/download/v1.1.1/nept_1.1.1_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "d8aa48bc0a9e96611588205f183b65cc275adb380c43948d69b597a2abfeae32"
+
+      def install
+        bin.install "nept"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/nept/releases/download/v1.1.1/nept_1.1.1_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "be70a2540ef26358067adb56bba619b4b31fb392a62ffef1729844da10a7c288"
+
+      def install
+        bin.install "nept"
+      end
+    end
   end
 
   depends_on "go"
-
-  def install
-    bin.install "nept"
-  end
 
   test do
     system "#{bin}/nept --version"
