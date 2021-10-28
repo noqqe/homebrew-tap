@@ -5,34 +5,45 @@
 class Typist < Formula
   desc "typist - I wrote a typing trainer to get into my ortholinear keyboard"
   homepage "https://github.com/noqqe/typist"
-  version "1.0.0"
+  version "1.0.2"
   license "MIT"
-  bottle :unneeded
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/noqqe/typist/releases/download/v1.0.0/typist_1.0.0_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "8e9c02c6d47c62f22615c2e79fb1c59ca283c3402f3f1b45161b2f9f31f36e59"
-    end
     if Hardware::CPU.arm?
-      url "https://github.com/noqqe/typist/releases/download/v1.0.0/typist_1.0.0_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "d996f902c64160cd845ab5e5d56f55e5e78796a44a7a9a435429bdff4e05c3ad"
+      url "https://github.com/noqqe/typist/releases/download/v1.0.2/typist_1.0.2_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "52d82989570fb11be2022fb95cb38163e82555edb60635443ceb7f2273105a1a"
+
+      def install
+        bin.install "typist"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/typist/releases/download/v1.0.2/typist_1.0.2_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "f853233a90577b3d070139991e4c7b8b0349381cf636a857b96b1525676c0ece"
+
+      def install
+        bin.install "typist"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/noqqe/typist/releases/download/v1.0.0/typist_1.0.0_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "dc3f6c4e66e62020d37e98e593c5ced5848d563ce46a0166012db18bb6ec17b8"
-    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/typist/releases/download/v1.0.0/typist_1.0.0_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "fe8db95ae377f7ed3a522a3e76abc93f01984208cf55464d6dbe79b61b8e092e"
-    end
-  end
+      url "https://github.com/noqqe/typist/releases/download/v1.0.2/typist_1.0.2_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "e8adc37b923af8dc14306984e1a16c348a8620912d6309781772f3edff03fe65"
 
-  def install
-    bin.install "typist"
+      def install
+        bin.install "typist"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/typist/releases/download/v1.0.2/typist_1.0.2_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "3f585d4924c82d0b4353b2845d4a2e68719e714e75c30c92e4b78bb78e8eebb2"
+
+      def install
+        bin.install "typist"
+      end
+    end
   end
 
   test do
