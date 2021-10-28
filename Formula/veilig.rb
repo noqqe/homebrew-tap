@@ -5,37 +5,48 @@
 class Veilig < Formula
   desc "veilig - written in go"
   homepage "https://github.com/noqqe/veilig"
-  version "1.3.3"
+  version "1.3.5"
   license "MIT"
-  bottle :unneeded
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/noqqe/veilig/releases/download/v1.3.3/veilig_1.3.3_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "56df8d2b85d9c48395b8d4435c0a5656bc7fc6cd480f5149984411d8321e31e1"
-    end
     if Hardware::CPU.arm?
-      url "https://github.com/noqqe/veilig/releases/download/v1.3.3/veilig_1.3.3_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "de9461aea37f07420d40931ddf71db68e8787703a5b7bb8f74baa7051b338466"
+      url "https://github.com/noqqe/veilig/releases/download/v1.3.5/veilig_1.3.5_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "6c4b60171ef537cc178102bbd394bd271d2bc10cfecc39203b74de77a5d3d4d4"
+
+      def install
+        bin.install "veilig"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/veilig/releases/download/v1.3.5/veilig_1.3.5_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "57c09e834b945790cd71fbbdf36e6dd05a56a397eee1cf2e23c724bdd139bfcf"
+
+      def install
+        bin.install "veilig"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/noqqe/veilig/releases/download/v1.3.3/veilig_1.3.3_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "8306eca9a752873a358baea06379bfcbc9454cd101c68a16ef13b8479a565ec0"
-    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/veilig/releases/download/v1.3.3/veilig_1.3.3_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "31c5846fbc96763012883ed71499bc2114180b03e472dc2a4c9daf438b2ed456"
+      url "https://github.com/noqqe/veilig/releases/download/v1.3.5/veilig_1.3.5_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "98aa7d259dcc3dbb14bb0bc0015b90a6d26926b27b34ae5edb1173983db92195"
+
+      def install
+        bin.install "veilig"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/veilig/releases/download/v1.3.5/veilig_1.3.5_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "d6ef9d54447fdf7c1703bdeeefad309d04934c21b4b39e6c35c5f183ed9d85bc"
+
+      def install
+        bin.install "veilig"
+      end
     end
   end
 
   conflicts_with "veilig"
-
-  def install
-    bin.install "veilig"
-  end
 
   test do
     system "#{bin}/veilig --version"
