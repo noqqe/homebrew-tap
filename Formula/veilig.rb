@@ -5,21 +5,21 @@
 class Veilig < Formula
   desc "veilig - written in go"
   homepage "https://github.com/noqqe/veilig"
-  version "1.3.5"
+  version "1.4.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/noqqe/veilig/releases/download/v1.3.5/veilig_1.3.5_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "6c4b60171ef537cc178102bbd394bd271d2bc10cfecc39203b74de77a5d3d4d4"
+      url "https://github.com/noqqe/veilig/releases/download/v1.4.1/veilig_1.4.1_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "2e527e05a2e03ca06b70b755b150a491bdf0e7ace2ebc924eb5d403b44cfc347"
 
       def install
         bin.install "veilig"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/noqqe/veilig/releases/download/v1.3.5/veilig_1.3.5_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "57c09e834b945790cd71fbbdf36e6dd05a56a397eee1cf2e23c724bdd139bfcf"
+      url "https://github.com/noqqe/veilig/releases/download/v1.4.1/veilig_1.4.1_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "a37bc8aa03591b2b51ccfa2bda4288161ecefc210bce1b230861ec46f14e67f8"
 
       def install
         bin.install "veilig"
@@ -28,17 +28,17 @@ class Veilig < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/veilig/releases/download/v1.3.5/veilig_1.3.5_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "98aa7d259dcc3dbb14bb0bc0015b90a6d26926b27b34ae5edb1173983db92195"
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/veilig/releases/download/v1.4.1/veilig_1.4.1_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "58c8cde5406456d22a76a9045b07fb00ad3300046f2111555f276e2fe8785283"
 
       def install
         bin.install "veilig"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/noqqe/veilig/releases/download/v1.3.5/veilig_1.3.5_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "d6ef9d54447fdf7c1703bdeeefad309d04934c21b4b39e6c35c5f183ed9d85bc"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/noqqe/veilig/releases/download/v1.4.1/veilig_1.4.1_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "16df69f40a56bfd416ded240e9c66fdcbabd2371a2464cbda0be53547ea54546"
 
       def install
         bin.install "veilig"
