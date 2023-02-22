@@ -5,21 +5,21 @@
 class Typist < Formula
   desc "typist - I wrote a typing trainer to get into my ortholinear keyboard"
   homepage "https://github.com/noqqe/typist"
-  version "1.0.2"
+  version "2.0.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/noqqe/typist/releases/download/v1.0.2/typist_1.0.2_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "52d82989570fb11be2022fb95cb38163e82555edb60635443ceb7f2273105a1a"
+      url "https://github.com/noqqe/typist/releases/download/2.0.0/typist_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "4fa005035c3e8008c7beace507950bde32fb189972583e69f9c4c60e1dd1adde"
 
       def install
         bin.install "typist"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/noqqe/typist/releases/download/v1.0.2/typist_1.0.2_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "f853233a90577b3d070139991e4c7b8b0349381cf636a857b96b1525676c0ece"
+      url "https://github.com/noqqe/typist/releases/download/2.0.0/typist_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "d7738cc683cf91d2e07178d72e3fc4eb6b665c504de05c8805e6d2d9d35e2b78"
 
       def install
         bin.install "typist"
@@ -29,16 +29,16 @@ class Typist < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/typist/releases/download/v1.0.2/typist_1.0.2_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "e8adc37b923af8dc14306984e1a16c348a8620912d6309781772f3edff03fe65"
+      url "https://github.com/noqqe/typist/releases/download/2.0.0/typist_Linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "5745bbe5b9ea1c0990f1a431e3d219c94de83646e78169607e2411f06aa7a723"
 
       def install
         bin.install "typist"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/noqqe/typist/releases/download/v1.0.2/typist_1.0.2_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "3f585d4924c82d0b4353b2845d4a2e68719e714e75c30c92e4b78bb78e8eebb2"
+      url "https://github.com/noqqe/typist/releases/download/2.0.0/typist_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "dde050c1da43617d2355c8e0cd8b0f62c8dc7f94c5ea82998cf55c8cbff1a554"
 
       def install
         bin.install "typist"
