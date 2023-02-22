@@ -5,21 +5,21 @@
 class Ipcalc < Formula
   desc "ipcalc - written in go"
   homepage "https://github.com/noqqe/ipcalc"
-  version "0.3.2"
+  version "0.4.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/noqqe/ipcalc/releases/download/v0.3.2/ipcalc_0.3.2_Darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "36bf0d9ade45d7779ab550ef468e2d630678781a65499785adcfd190d55436aa"
+      url "https://github.com/noqqe/ipcalc/releases/download/0.4.1/ipcalc_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "ed191ffde697e4ad20bcdf0419a9f9cac5c42da371792e123ea407346f13adf3"
 
       def install
         bin.install "ipcalc"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/noqqe/ipcalc/releases/download/v0.3.2/ipcalc_0.3.2_Darwin_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "52bf38e51eb3b055a9df08e38b7b38b991192306ec38e89c1b83084a61a7cb1a"
+      url "https://github.com/noqqe/ipcalc/releases/download/0.4.1/ipcalc_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "a8c44e10c403d8c5655ebec13984da9ee9dfc6ba2c4151a4f2f21b53a3a5e737"
 
       def install
         bin.install "ipcalc"
@@ -28,17 +28,17 @@ class Ipcalc < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/ipcalc/releases/download/v0.3.2/ipcalc_0.3.2_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "deb16a7722a3e15f94b38ba5d4863f6ab3ba8400f62bbc40f7fc554812d67543"
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/ipcalc/releases/download/0.4.1/ipcalc_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "b0c75c1254d49687f6f8a6d79f5c5d5b20f5fca7d226c9b10d87f7cf12b952f8"
 
       def install
         bin.install "ipcalc"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/noqqe/ipcalc/releases/download/v0.3.2/ipcalc_0.3.2_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "367799b8035a8a9510575f6ebfae1dc67bb56130b676848121e44f30bbe80018"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/noqqe/ipcalc/releases/download/0.4.1/ipcalc_Linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "67a89088870691efe36afb37fb67ce25e792c6cc7db4c53933027da004a0b0e6"
 
       def install
         bin.install "ipcalc"
