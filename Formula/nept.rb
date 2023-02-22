@@ -5,23 +5,23 @@
 class Nept < Formula
   desc "nept - image manipulation on commandline on pixel level"
   homepage "https://github.com/noqqe/nept"
-  version "2.0.1"
+  version "2.0.2"
   license "MIT"
 
   depends_on "go"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/noqqe/nept/releases/download/2.0.1/nept_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "8b6ef28d8954456b475989b65644af95a424762f9a4afa8810917dd5b7c0f30a"
+    if Hardware::CPU.arm?
+      url "https://github.com/noqqe/nept/releases/download/2.0.2/nept_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "4f6431a56ec6271dfa44e64f5222a092fbb8bd4f92158cdcfcf5927ee700505f"
 
       def install
         bin.install "nept"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/noqqe/nept/releases/download/2.0.1/nept_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "e4fc76ed2f326320c23de3cdf73cd6df8cabd238dadde5e35cf6325e78e7f502"
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/nept/releases/download/2.0.2/nept_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "0921c0a63b60907d1836d2ae572b90d7a44b08be1ac5bddbb966d05c6990de4f"
 
       def install
         bin.install "nept"
@@ -30,17 +30,17 @@ class Nept < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/nept/releases/download/2.0.1/nept_Linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "102599a466d77281b895d20ad167e4b69e4af24440896d868d197638691eceef"
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/nept/releases/download/2.0.2/nept_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "bec5f2bfe824556c7898988f1dc94d9c0ab7ae0433d922b8770eff02ac453942"
 
       def install
         bin.install "nept"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/noqqe/nept/releases/download/2.0.1/nept_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "c200638fa90adf5c74231e4d2a959abd153eff18c3d5b996e62fce2f076159c0"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/noqqe/nept/releases/download/2.0.2/nept_Linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "afa06dab6b38fcaa1b7f35d1bfa90a147f4fe1dd0632cd16389c11d964af6ce4"
 
       def install
         bin.install "nept"
