@@ -5,21 +5,21 @@
 class Bump < Formula
   desc "bump - dumb version bump"
   homepage "https://github.com/noqqe/bump"
-  version "0.3.0"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/noqqe/bump/releases/download/0.3.0/bump_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "09a558191e3f52de207538a69843fdc96589e1963279e93ae3c3c11df849c7ff"
+      url "https://github.com/noqqe/bump/releases/download/0.4.0/bump_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "8af164d397bd77756e993ecdd97a25e8df5826c64b017c940b74f420c078dea5"
 
       def install
         bin.install "bump"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/noqqe/bump/releases/download/0.3.0/bump_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "e6b2af9356a5bcd45fe518693160182a0806201fb3e0f05456f172e94174fc9f"
+      url "https://github.com/noqqe/bump/releases/download/0.4.0/bump_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "750694707dfc65f50b36519d30ef3097c86f56cc4113889ecd77f23e1c56c0e0"
 
       def install
         bin.install "bump"
@@ -29,16 +29,16 @@ class Bump < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/noqqe/bump/releases/download/0.3.0/bump_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "ab111f41d8921f3ba16f82d35f9109c6431622dcabe03f998c7af0ae7b03370f"
+      url "https://github.com/noqqe/bump/releases/download/0.4.0/bump_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "ded6b9c4b1c71ac5dda927d07c33e47964127e92c72f1d3992437267894adfa2"
 
       def install
         bin.install "bump"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/bump/releases/download/0.3.0/bump_Linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "c485e75efc4dce5f0868898302cf18b06e703ac5dccf97d333cfae93f6b8cfec"
+      url "https://github.com/noqqe/bump/releases/download/0.4.0/bump_Linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "e984c2d7b3712bbefd018aed364df025c1a7dc89a18bafe5cf0effa01589dc12"
 
       def install
         bin.install "bump"
