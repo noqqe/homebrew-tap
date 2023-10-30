@@ -5,21 +5,21 @@
 class Bump < Formula
   desc "bump - dumb version bump"
   homepage "https://github.com/noqqe/bump"
-  version "0.6.0"
+  version "0.7.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/noqqe/bump/releases/download/0.6.0/bump_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "6be312f001309709dcfaa3a4c708fd0a9c521f03ee46cc4eb676ff41751edeb0"
+      url "https://github.com/noqqe/bump/releases/download/0.7.0/bump_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "cbbf8fae72a3f0243d5efbba74e41b6e7460b5d74173f45287dac6924aa7bdb9"
 
       def install
         bin.install "bump"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/noqqe/bump/releases/download/0.6.0/bump_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "f12f81c97ff94fe6c06ce05e9942a9c613a3b16e5315b63d4e732890bf96405a"
+      url "https://github.com/noqqe/bump/releases/download/0.7.0/bump_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "e794a42eea96a3a76a2c7d5381fef3bfda074bc50b68b727a031e93689ab4ed3"
 
       def install
         bin.install "bump"
@@ -28,17 +28,17 @@ class Bump < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/noqqe/bump/releases/download/0.6.0/bump_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "09cf225ffae937fd1193e1f7ea457b17730840e46d521fc9772fd010621607dd"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/noqqe/bump/releases/download/0.7.0/bump_Linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "8c0f92a1575c4f38ed3382b036ba70aa4d78b0f58c966ae8e5f1019811548fb4"
 
       def install
         bin.install "bump"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/bump/releases/download/0.6.0/bump_Linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "d0677d22d938ec93a1cfe22bac26d49e255489722d657a1cad78f7b2ab64576c"
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/bump/releases/download/0.7.0/bump_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "b15f6b8db312aeb7335438878a8b16999547c5a5e4b930e79924d428feb68795"
 
       def install
         bin.install "bump"
