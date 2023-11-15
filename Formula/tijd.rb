@@ -5,21 +5,21 @@
 class Tijd < Formula
   desc "time tool for working remote with the world"
   homepage "https://github.com/noqqe/tijd"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/noqqe/tijd/releases/download/0.1.0/tijd_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "cc68ce204125a606d08be84fd63a788601dae33a55f234fcdc3fa078db244f6d"
+    if Hardware::CPU.arm?
+      url "https://github.com/noqqe/tijd/releases/download/0.2.0/tijd_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "6b91c5f06f36b3f8eda5e6039d6e61cde628c6d1c764fe655d4af520b808312f"
 
       def install
         bin.install "tijd"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/noqqe/tijd/releases/download/0.1.0/tijd_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "6a6289e656f643f45b60d7c77f99a9edb9c4e30a750d891c76549012898bbc8e"
+    if Hardware::CPU.intel?
+      url "https://github.com/noqqe/tijd/releases/download/0.2.0/tijd_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "99ba8046905a516c1b9b23ff67f3d5a836fec5ca1f4f4d9b615a7e6b574baf0f"
 
       def install
         bin.install "tijd"
@@ -29,16 +29,16 @@ class Tijd < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/tijd/releases/download/0.1.0/tijd_Linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "50e656d878b935d04e238290139c1294cfe51345568051a32fe7e28142cafedd"
+      url "https://github.com/noqqe/tijd/releases/download/0.2.0/tijd_Linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "2b902c9440d23a5077d3b6cc5bd4621381cfa9601fe9f518197849ccd48dda4d"
 
       def install
         bin.install "tijd"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/noqqe/tijd/releases/download/0.1.0/tijd_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "df6a95f86c4dc6874eabaff1448ac5e87b91b9aabe8d4a129ba4752171ea5c80"
+      url "https://github.com/noqqe/tijd/releases/download/0.2.0/tijd_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "9b5fde43c8bdb234c444dbafae2ccb4b8efacaeca4a2298faff400135ff1825d"
 
       def install
         bin.install "tijd"
