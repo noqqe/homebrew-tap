@@ -5,21 +5,21 @@
 class Serra < Formula
   desc "serra - Personal Magic: The Gathering Collection Tracker "
   homepage "https://github.com/noqqe/serra"
-  version "3.18.2"
+  version "3.18.5"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/noqqe/serra/releases/download/3.18.2/serra_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "b0ce215abc3ef2eade09426d94dac6d0c06510a4fbb1cbca8bfecb32798d0060"
+    on_intel do
+      url "https://github.com/noqqe/serra/releases/download/3.18.5/serra_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "a40041bc9678378786d30f81b8c3a5945c1a8266ca9620b5eec74baed3b445a3"
 
       def install
         bin.install "serra"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/noqqe/serra/releases/download/3.18.2/serra_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "914ffad8f21e0efbf1401e1746df88b38d28962982750230420466940f435165"
+    on_arm do
+      url "https://github.com/noqqe/serra/releases/download/3.18.5/serra_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "aa42584febcaffe7738dc350453a4c204eb161f540a1befb23a5893b815f4f62"
 
       def install
         bin.install "serra"
@@ -28,20 +28,24 @@ class Serra < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/serra/releases/download/3.18.2/serra_Linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "58b05b972909541d2aa42cc76fe595f78c172bba509599af44e38434b048ec2e"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/noqqe/serra/releases/download/3.18.5/serra_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
+        sha256 "748dffdccda31b6e0fe0ecc1b320232158d66413779fc1d9327cadedd5150a35"
 
-      def install
-        bin.install "serra"
+        def install
+          bin.install "serra"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/noqqe/serra/releases/download/3.18.2/serra_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "2ac21ab57ea9e9531b996f3a63c535cb6b3ec7b4a0ead1aaa980785d38336dbf"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/noqqe/serra/releases/download/3.18.5/serra_Linux_arm64.tar.gz", using: CurlDownloadStrategy
+        sha256 "e259a10594553bfea17f35f97602049849aef35ccc0566262283a837e1491dcc"
 
-      def install
-        bin.install "serra"
+        def install
+          bin.install "serra"
+        end
       end
     end
   end
