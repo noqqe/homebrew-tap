@@ -5,42 +5,26 @@
 class Serra < Formula
   desc "serra - Personal Magic: The Gathering Collection Tracker "
   homepage "https://github.com/noqqe/serra"
-  version "3.22.1"
+  version "3.23.8"
   license "MIT"
+  depends_on :macos
 
-  on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/noqqe/serra/releases/download/3.22.1/serra_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "e04542e00ca7eda9ee8eacd2e381c40070cf73a3271c7a9cf211ba7d20baf58b"
+  if Hardware::CPU.intel?
+    url "https://github.com/noqqe/serra/releases/download/3.23.8/serra_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+    sha256 "6aa084543b53646b5dca0045b1ccabce651ebfce389057be1e980f3ac8217b67"
 
-      def install
-        bin.install "serra"
-      end
-    end
-    if Hardware::CPU.arm?
-      url "https://github.com/noqqe/serra/releases/download/3.22.1/serra_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "be7540ed6a3f8f30d49d78335e663c6157375995902d393266108f2cb7eb6b0a"
-
-      def install
-        bin.install "serra"
-      end
+    def install
+      (share/"sounds").install "sounds/*mp3"
+      bin.install "serra"
     end
   end
+  if Hardware::CPU.arm?
+    url "https://github.com/noqqe/serra/releases/download/3.23.8/serra_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
+    sha256 "3076cd118758d20e107ee1284925ded6995c67e15002340c3dc275ab05cfe7b4"
 
-  on_linux do
-    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/serra/releases/download/3.22.1/serra_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "2a53f07bdd2d2e448748c085f12274f85aa8ad0b6b6242f575b581bee570259d"
-      def install
-        bin.install "serra"
-      end
-    end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/serra/releases/download/3.22.1/serra_Linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "51249808b57f72ba380e3a5135548d3f3f32b6ca6f4ec1a7793b82b24591e08b"
-      def install
-        bin.install "serra"
-      end
+    def install
+      (share/"sounds").install "sounds/*mp3"
+      bin.install "serra"
     end
   end
 
