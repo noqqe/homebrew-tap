@@ -5,21 +5,21 @@
 class Veilig < Formula
   desc "veilig - Toy TLS certificate viewer"
   homepage "https://github.com/noqqe/veilig"
-  version "1.5.3"
+  version "1.6.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/noqqe/veilig/releases/download/1.5.3/veilig_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "96e64b968b57b1bdc35d7af9eee6a33595a3498aceb973726e687f186cc0f716"
+      url "https://github.com/noqqe/veilig/releases/download/1.6.0/veilig_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "44ab94afd7554f5abfd994c88d475317bde2f3f7f9b821f8ef21c89a1aba1a82"
 
       def install
         bin.install "veilig"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/noqqe/veilig/releases/download/1.5.3/veilig_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "e6d28acc4b5442d91771ad0a9ff0691a4032a36aa55f98d5934f11e3ff6346b7"
+      url "https://github.com/noqqe/veilig/releases/download/1.6.0/veilig_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "5db4fee2ef8fe9cacaf76ed56abc3ba9fe39bc730d267edaf2bbde10bd55d5a2"
 
       def install
         bin.install "veilig"
@@ -29,15 +29,15 @@ class Veilig < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/veilig/releases/download/1.5.3/veilig_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "0cb7d58dacd5596472f6b5548dc0ebced49e490798b0b4f09690fe95133c9452"
+      url "https://github.com/noqqe/veilig/releases/download/1.6.0/veilig_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "9a1dd70b7c7cd5fcf734d5c887755bbab8e2b7a27066b170fefda5535f1d4583"
       def install
         bin.install "veilig"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noqqe/veilig/releases/download/1.5.3/veilig_Linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "da756ec6362dba8bbca90c5147a1baf6a039c393483f133ac8d1d2980b273853"
+      url "https://github.com/noqqe/veilig/releases/download/1.6.0/veilig_Linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "1e509ec333e5f13fcac50bc8c540777f5ae4af168b3b08d306eda4366db27bd0"
       def install
         bin.install "veilig"
       end
